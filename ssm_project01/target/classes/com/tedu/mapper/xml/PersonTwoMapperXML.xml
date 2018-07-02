@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedu.dao.PersonTwoMapper">
+	<select id="SelPersonTwoByPid" parameterType="java.lang.String" resultType="com.tedu.entity.Person_Two">
+		select t.* from person p join person_two t on p.id = t.pid where p.id= #{id}
+	</select>
+</mapper>
