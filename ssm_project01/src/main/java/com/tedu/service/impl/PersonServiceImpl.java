@@ -28,4 +28,28 @@ public class PersonServiceImpl implements IPersonService {
 		return personDao.SelPersonById(id);
 	}
 
+	@Override
+	public List<Person> SelPersonByLike(String str) {
+		// TODO Auto-generated method stub
+		return personDao.SelPersonByLike(str);
+	}
+
+	@Override
+	public void DelPersonById(int id) {
+		// TODO Auto-generated method stub
+		personDao.DelPersonById(id);
+	}
+
+	@Override
+	public void InsertPerson(Person person) {
+		// TODO Auto-generated method stub
+		personDao.InsertPerson(person);
+	}
+
+	@Override
+	public void UpdatePerson(Person person) {
+		// TODO Auto-generated method stub
+		personDao.UpdatePerson(person);
+	}
+
 }

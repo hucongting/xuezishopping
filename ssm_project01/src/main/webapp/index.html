@@ -3,12 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script type="text/javascript" src="admin/layer/layer.js"></script>
+<script type="text/javascript" src="admin/js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#a_test").on('click',function(){
+			alert("sd");
+		});
+	});
+</script>
 </head>
 <body>
 	<header>
-		<img alt="" src="">
-		<h1>欢迎登陆</h1>
+		<h1>TEST</h1>
+		<a id="a_test" >TEST Layer</a><br>
+		
 	</header>
 </body>
 </html>

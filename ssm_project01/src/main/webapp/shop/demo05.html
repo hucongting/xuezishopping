@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 创建正则对象的两种方式 */
+	//第一个/ 后面写正则的规则，第二个/ 写模式
+	//模式： i 忽略大小写 g 全局查找
+	var reg1 = /^a/i; //a开头，加了i代表忽略大小写     
+	reg1 = /z$/; //z结尾
+	reg1 = /\d{2}/; //包含任意的两位数字
+	reg1 = /\d{3,5}/; //包含任意的3-5位数字
+	//m开头d结尾 内部包含6-8个数字
+	reg1 = /^m\d{6,8}d$/; 
+	//任意字母数字下划线6-10位
+	reg1 = /\w{6,10}/;
+	
+	//第一个参数写正则的规则，第二个写模式
+	//模式可以不写
+	var reg2 = new RegExp("^a","i");
+	//m开头d结尾， 内部包含6-8个数字
+	reg2 = new RegExp("^m\\d{6,8}d$");
+	//正则相关的函数
+	//1. 正则对象相关的函数
+	//1.1 查找内容的函数
+	var str = "I Love You! You Love Me ?";
+	var reg = /Me/g; //g全局查找： 第一次执行得到第一次出现的内容，第二次得到第二次出现的内容，知道找不到后得到null
+	//alert(reg.exec(str));
+	//alert(reg.exec(str));
+	
+	//1.2 校验函数 判断字符串是否符合正则的规则
+	//var reg = /^i/i;
+	//alert(reg.test(str)); //test();   返回true,false;
+	
+	//2 字符串和正则相关的函数
+	//2.1 查找内容的函数，全局查找会把字符串中出现的所有符合条件的内容找到，并且放到一个数组中
+	//var reg3 = /You/g;
+	//alert(str.match(reg3));
+	
+	//2.2 查找内容并替换
+	//var reg4 = /You/g;
+	//alert(str.replace(reg4,"NiMa"));
+	
+	//练习： 页面中添加文本输入框，和一个按钮输入完内容后点击按钮，如果是以s开头并且包含3-5个数字以m结尾，则alert true，否则false;
+	
+	function btn_function(){
+		var text = document.getElementById("text1").value;
+		//var reg = /^s\d{3,5}m$/;
+		var reg = new RegExp("^s\\d{3,5}m$");
+		alert(reg.test(text));
+		
+	}
+	
+	function jiaoyan(){
+		var name = document.getElementById("username").value;
+		var pwd = document.getElementById("userpwd").value;
+		var reg = /^\w{6,10}$/;
+		var regpwd = /^\w{6,10}$/;
+		
+		if(reg.test(name)){
+			document.getElementById("msg_name").className = "yes";
+		}else{
+			document.getElementById("msg_name").className = "no";
+		}
+		
+		if(regpwd.test(pwd)){
+			document.getElementById("msg_pwd").className = "yes";
+		}else{
+			document.getElementById("msg_pwd").className = "no";
+		}
+	}
+</script>
+<style type="text/css">
+	.yes{color:green;}
+	.no{color:red;}
+</style>
+</head>
+<body>
+	<input type="text" id="text1" /><input type="button" id="btn" value="确定..." onclick="btn_function();" />
+	<br><br>
+	<hr>
+	
+	请输入用户名：<input type="text" id="username" /><span id="msg_name" class="name">数字字母下划线6-10</span><br><br>
+	请输入密  码：<input type="password" id="userpwd" /><span id="msg_pwd" class="pwd">数字字母下划线6-10</span><br><br>
+	<input type="button" id="btn" value="校验..." onclick="jiaoyan()" >
+	
+</body>
+</html>

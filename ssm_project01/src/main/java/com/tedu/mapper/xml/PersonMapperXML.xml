@@ -2,9 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tedu.dao.PersonMapper">
 	<select id="SelPerson" resultType="com.tedu.entity.Person">
-		select * from person
+		select * from person order by id desc
 	</select>
 	<select id="SelPersonById" resultType="com.tedu.entity.Person" parameterType="java.lang.String">
 		select * from person where id = #{id}
 	</select>
+	<select id="SelPersonByLike" resultType="com.tedu.entity.Person" parameterType="java.lang.String">
+		select * from person where concat(fname,lname,age) like '%${str}%' order by id desc
+	</select>
+	<select id="DelPersonById" parameterType="java.lang.Integer">
+		delete from person where  id = #{id}
+	</select>
+	<insert id="InsertPerson" parameterType="com.tedu.entity.Person">
+		insert into person(fname,lname,age,sex) values(#{fname},#{lname},#{age},#{sex})
+	</insert>
+	<update id="UpdatePerson" parameterType="com.tedu.entity.Person">
+		UPDATE person
+			 <trim prefix="set" suffixOverrides=",">
+				<if test="fname != null">fname=#{fname},</if>
+				<if test="lname != null">lname=#{lname},</if>
+				<if test="age != null">age=#{age},</if>
+				<if test="sex != null">sex=#{sex},</if>
+			</trim>
+		WHERE id = #{id}	
+	</update>
 </mapper>

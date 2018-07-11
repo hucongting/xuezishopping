@@ -5,11 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	
-</style>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/layer/theme/default/layer.css"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#aaa").on('click',function(){
+			alert('sdfdsddddd');
+			layer.msg('玩命提示中');
+		});
+	});
+</script>
+
 </head>
 <body>
-
+	<a href="javascript:;" id="aaa">TEST</a>
 </body>
 </html>

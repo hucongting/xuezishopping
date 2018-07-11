@@ -4,35 +4,62 @@
 <meta charset="UTF-8">
 <title>Login Page</title>
 <style type="text/css">
-	#top{
-		width: 100%;
-		height: 85px;
-		background-color: #f5f5f5;
-		float: left;
-		position: relative;
-		border-bottom:1px solid #87CEFA;
-	}
-	#top_content_div{
-		width: 300px;
-		height: 85px;
-		float: left;
-		position: absolute;
-		left: 30%;
-	}
-	#logo{
-		width: 170px;
-		height: 85px;
-		float:left;
-		line-height: 110px;
-	}
-	#logodl{
-		width: 130px;
-		height: 85px;
-		float: left;
-		font-size: 20px;
-		line-height: 50px;
-	}
+	border{background-color: #EAEAEA;}
+	/* 顶部导航栏 */
+	#top{width: 100%;height: 85px;float: left;position: relative;border-bottom:1px solid #87CEFA;}
+	#top_content_div{width: 310px;height: 85px;float: left;position: absolute;left: 30%;}
+	#logo{width: 170px;height: 85px;float:left;line-height: 110px;}
+	#logodl{width: 130px;height: 85px;float: left;font-size: 20px;line-height: 50px;padding-left: 10px;color: grey}
+	/* 中间登陆样式 */
+	#content{width: 100%;height: 450px;background-image:url("img/002.jpg");background-position: left;float: left;}
+	#content_div{width: 400px;height: 400px;float: right;}
+	#login_div{width: 250px;height: 250px;background-color: #CCCCCC;background-color: rgba(27,27,24,0.5);float:right;margin-right: 80px;margin-top: 80px;padding-left: 10px;padding-right: 10px;padding-top: 10px;}
+	#login_title{width:250px;height: 40px;float:left;border-bottom: 1px solid white;}
+	#sp1,#sp2{line-height: 40px;}
+	#sp1{color: white;font-size: 18px;}
+	#sp2{float:right;font-size: 12px;color: white;}
+	#login_input_username{width: 250px;height: 30px;background-color: green;float: left;margin-top: 5px;position: relative;}
+	#login_input_userpwd{width: 250px;height: 30px;background-color: green;float: left;margin-top: 5px;position: relative;}
+	#username{;width:250px;height: 30px;border: 0px;}
+	#userpwd{width:250px;height: 30px;border: 0px;}
+	.imglogo{float: right;position: absolute;right: 0px;top:2px;margin-right: 10px;}
+	#msg{font-size: 10px;color:red;float: left;margin-top: 5px; visibility: hidden;}
+	#login_bottom{width: 250px;height: 40px;float: left;font-size: 12px;color: white;}
+	#jzmm{line-height: 40px;}
+	#wjmm{float: right;right: 0px;line-height: 40px;}
+	#btn_logo{width:250px;height: 30px;background-color: gray;float:left;}
+	.logo_btn{width: 250px;height:30px;background-color: #4876FF; border: 0px;border-radius: 3px;color: white;}
+	#jzmm_input{float: left;margin-top: 16px;width: 10px;height: 10px;}
+	#jzmm_input{}
+	input::-webkit-input-placeholder{font-size: 10px; color: gray;padding-left: 10px;}
+	/* 自动登陆文本 */
+	/* #xxx label{position: relative; } */
 	
+	/* 品牌层样式 */
+	#pinpai_div{width: 100%; height: 160px;background-color: #EAEAEA; float: left;}
+	#pinpai_div_content{width: 800px;height: 160px;float:left;margin-left: 27%;}
+	#div1{width:200px;height: 160px;float:left;}
+	#div2{width:200px;height: 160px;float:left;}
+	#div3{width:200px;height: 160px;float:left;}
+	#div4{width:200px;height: 160px;float:left;}
+	.img_icon{width:50px;height:50px;float:left;margin-left: 70px;margin-top: 35px;position: absolute;}
+	.sp_icon{float: left;margin-top: 90px;margin-left:69px;position: absolute; font-size: 13px;color:	#575757;}
+	
+	/* 底部 */
+	#div_bottom{width:100%;height: 180px;background-color: white; float:left;}
+	#div_left{width:333px;height:140px;float:left;margin-left: 24%;padding-top: 40px;}
+	#div_center{width:333px;height:155px;float:left;padding-top: 25px;}
+	#div_right{width:333px;height:140px;float:left;padding-top: 40px;text-align: center;margin-left: 60px;}
+	#div_center ul{list-style-type:none;padding: 0; text-align: center;}
+	#div_center>ul>li{float:left;width:111px;font-weight: bold;font-size: 14px;}
+	#div_center>ul>li>ul>li{font-weight: normal;font-size: 12px;margin: 5px 0;}
+	#div_center a{text-decoration: none;color: #666;}
+	#footer_left img{margin-left: 30px;}
+	#right_left{float: left;width: 150px;height: 120px;text-align: center;}
+	#right_left span{font-size: 12px;}
+	#right_right{float: left;width:120px;height: 120px;text-align: center;}
+	#beian{font-size: 13px;text-align: center;}
+	/* clear:both; 浮动不生效 */
 </style>
 </head>
 <body>
@@ -43,6 +70,100 @@
 		</div>
 	</div>
 	<!-- div 中间正文 -->
-	<div></div>
+	<div id="content">
+		<div id="content_div">
+			<div id="login_div">
+				<div id="login_title">
+					<span id="sp1">登陆学子商城</span>
+					<span id="sp2">新用户注册</span>
+				</div>
+				<div id="login_input_username">
+					<input type="text" id="username" name="username" placeholder="请输入用户名" />
+					<img class="imglogo" alt="" src="img/yhm.png">
+				</div>
+				<div id="msg_div"><p id="msg">测试测试</p></div>
+				<div id="login_input_userpwd">
+					<input type="password" id="userpwd" name="userpwd" placeholder="请输入密码"  />
+					<img class="imglogo" alt="" src="img/mm.png">
+				</div>
+				<div id="msg_div"><p id="msg">测试测试</p></div>
+				<div id="login_bottom">
+					<span id="jzmm">
+						<input type="checkbox" id="jzmm_input">
+						<span id="jzmma">记住密码</span>
+					</span>
+					<span id="wjmm">忘记密码？</span>
+				</div>
+				<div id="btn_logo">
+					<input class="logo_btn" type="button" value="登陆">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 底层品牌 -->
+	<div id="pinpai_div">
+		<div id="pinpai_div_content">
+			<div id="div1">
+				<img class="img_icon" src="img/icon1.png">
+				<span class="sp_icon">品质保障</span>
+			</div>
+			<div id="div2">
+				<img class="img_icon" src="img/icon2.png">
+				<span class="sp_icon">私人定制</span>
+			</div>
+			<div id="div3">
+				<img class="img_icon" src="img/icon3.png">
+				<span class="sp_icon">学员特供</span>
+			</div>
+			<div id="div4">
+				<img class="img_icon" src="img/icon4.png">
+				<span class="sp_icon">专属特权</span>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div id="div_bottom">
+		<div id="div_left">
+			<img alt="" src="img/logo.png">
+			<img alt="" src="img/footerFont.png">
+		</div>
+		<div id="div_center">
+			<ul>
+				<li><a href="#">买家帮助</a>
+					<ul>
+						<li><a href="#">新手指南</a></li>
+						<li><a href="#">服务保障</a></li>
+						<li><a href="#">常见问题</a></li>
+					</ul>
+				</li>
+				<li><a href="#">商家帮助</a>
+					<ul>
+						<li><a href="#">商家入驻</a></li>
+						<li><a href="#">商家后台</a></li>
+					</ul>
+				</li>
+				<li><a href="#">关于我们</a>
+					<ul>
+						<li><a href="#">关于达内</a></li>
+						<li><a href="#">联系我们</a></li>
+						<li id="imgli"><a href="#"><img alt="" src="img/wechat.png"></a><a href="#"><img alt="" src="img/sinablog.png"></a></li>
+					</ul>
+				</li>
+			</ul>
+			<p id="beian">©2017 达内集团有限公司 版权所有 京ICP证xxxxxxxxxxx</p>
+		</div>
+		<div id="div_right">
+			<div id="right_left">
+				<span>学子商城客户端</span>
+				<img alt="" src="img/ios.png">
+				<img alt="" src="img/android.png">
+			</div>
+			<div id="right_right">
+				<img src="img/erweima.png">
+			</div>
+			
+		</div>
+	</div>
+
 </body>
 </html>

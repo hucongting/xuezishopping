@@ -18,4 +18,6 @@
 	<mvc:resources location="/home/js/" mapping="/home/js/**" />
 	<mvc:resources location="/shop/img/" mapping="/shop/img/**" />
 	<mvc:resources location="/shop/" mapping="/shop/**" />
+	<mvc:resources location="/admin/" mapping="/admin/**" />
+	<mvc:resources location="/xzsc/" mapping="/xzsc/**" />
 </beans>
