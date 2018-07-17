@@ -13,4 +13,5 @@ public interface IPersonService {
 	void DelPersonById(int id);
 	void InsertPerson(Person person);
 	void UpdatePerson(Person person);
+	List<Person> SelPersonListByFY();
 }

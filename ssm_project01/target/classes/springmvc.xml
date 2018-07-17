@@ -15,7 +15,7 @@
 	</bean>
 	
 	<mvc:resources location="/img/" mapping="/img/**" />
-	<mvc:resources location="/home/js/" mapping="/home/js/**" />
+	<mvc:resources location="/home/" mapping="/home/**" />
 	<mvc:resources location="/shop/img/" mapping="/shop/img/**" />
 	<mvc:resources location="/shop/" mapping="/shop/**" />
 	<mvc:resources location="/admin/" mapping="/admin/**" />

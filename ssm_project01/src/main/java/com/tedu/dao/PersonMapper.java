@@ -13,4 +13,5 @@ public interface PersonMapper {
 	void DelPersonById(int id);
 	void InsertPerson(Person person);
 	void UpdatePerson(Person person);
+	List<Person> SelPersonListByFY();
 }

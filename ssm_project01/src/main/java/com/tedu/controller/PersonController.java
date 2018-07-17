@@ -2,6 +2,7 @@ package com.tedu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.tedu.dao.PersonMapper;
 import com.tedu.entity.Person;
 
@@ -147,6 +152,19 @@ public class PersonController {
 			System.out.println("修改异常");
 			out.println(false);
 		}
+	}
+	
+	
+	//测试分页
+	@RequestMapping("/personListFY")
+	public String SelPersonListByFY(@RequestParam(defaultValue="1")Integer page,Model model,HttpServletResponse response) throws IOException {
+		PageHelper.startPage(page,5);
+		List<Person> personList = personDao.SelPersonListByFY();
+		PageInfo<Person> p = new PageInfo<>(personList);
+		model.addAttribute("page", p);
+		model.addAttribute("personList", personList);
+		response.getWriter().println(personList);
+		return "index";
 	}
 	
 }

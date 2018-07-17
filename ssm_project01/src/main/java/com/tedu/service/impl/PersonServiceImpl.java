@@ -52,4 +52,10 @@ public class PersonServiceImpl implements IPersonService {
 		personDao.UpdatePerson(person);
 	}
 
+	@Override
+	public List<Person> SelPersonListByFY() {
+		// TODO Auto-generated method stub
+		return personDao.SelPersonListByFY();
+	}
+
 }
